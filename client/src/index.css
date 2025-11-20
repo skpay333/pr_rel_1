@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ROMAX PAY DESIGN SYSTEM - LIGHT MODE ONLY */
+:root {
+  /* Background - #F7F5F1 (Warm off-white) */
+  --background: 44 25% 96%;
+  
+  /* Primary (Dark Teal - #0B3D4A) - Main text, buttons */
+  --foreground: 196 68% 15%;
+  
+  /* Borders - #9AA0A8 (Dividers) */
+  --border: 210 16% 64%;
+  
+  /* White cards - #FFFFFF */
+  --card: 0 0% 100%;
+  --card-foreground: 196 68% 15%;
+  
+  /* Primary - Dark teal #0B3D4A for buttons */
+  --primary: 196 68% 15%;
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary - Mint green #DFF9EB for balance cards */
+  --secondary: 150 60% 93%;
+  --secondary-foreground: 196 68% 15%;
+  
+  /* Accent - Mint border #4AB7A5 for borders, secondary buttons */
+  --accent: 171 48% 51%;
+  --accent-foreground: 0 0% 100%;
+  
+  /* Muted - Light gray #E4E4EA */
+  --muted: 210 16% 93%;
+  --muted-foreground: 180 17% 56%;
+  
+  /* Destructive - Error #ED4C5C */
+  --destructive: 354 79% 61%;
+  --destructive-foreground: 0 0% 100%;
+  
+  /* Success - #2A9D8F */
+  --success: 171 56% 39%;
+  --success-bg: 150 60% 93%;
+  
+  /* Pending - #F4A261 */
+  --pending: 28 87% 67%;
+  --pending-bg: 38 100% 94%;
+  
+  /* Error - #ED4C5C */
+  --error: 354 79% 61%;
+  --error-bg: 0 100% 95%;
+  
+  /* Input and ring */
+  --input: 0 0% 100%;
+  --ring: 171 48% 51%;
+  
+  /* Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 196 68% 15%;
+  
+  /* Chart colors */
+  --chart-1: 196 68% 15%;
+  --chart-2: 171 48% 51%;
+  --chart-3: 150 60% 93%;
+  --chart-4: 210 16% 93%;
+  --chart-5: 180 17% 56%;
+  
+  /* Sidebar (for admin/operator panels) */
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 196 68% 15%;
+  --sidebar-border: 210 16% 93%;
+  --sidebar-ring: 171 48% 51%;
+  --sidebar-primary: 196 68% 15%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 171 48% 51%;
+  --sidebar-accent-foreground: 0 0% 100%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground;
+    letter-spacing: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .transition-soft {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
